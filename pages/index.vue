@@ -3,8 +3,7 @@
     class="w-screen h-screen overflow-hidden bg-center bg-cover"
     :style="backgroundStyle"
   >
-    <!-- <Topbar></Topbar> -->
-    {{ themeStore.dark }}
+
   </div>
 </template>
 
@@ -14,7 +13,7 @@ const themeStore = useThemeStore();
 
 // Nuxt 不加前缀默认取public下
 const wallpapers = {
-  day: "public/img/ui/wallpaper-day.jpg",
+  day: "img/ui/wallpaper-day.jpg",
   night: "img/ui/wallpaper-night.jpg",
 };
 
