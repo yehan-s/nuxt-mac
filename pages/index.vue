@@ -3,7 +3,7 @@
     class="w-screen h-screen overflow-hidden bg-center bg-cover"
     :style="backgroundStyle"
   >
-
+    <Topbar />
   </div>
 </template>
 
@@ -16,7 +16,6 @@ const wallpapers = {
   day: "img/ui/wallpaper-day.jpg",
   night: "img/ui/wallpaper-night.jpg",
 };
-
 
 const backgroundStyle = computed(() => {
   const imageUrl = themeStore.dark ? wallpapers.night : wallpapers.day;
