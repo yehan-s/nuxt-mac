@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   modules: [
     [
       "@pinia/nuxt",
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
         ],
       },
     ],
-    "dayjs-nuxt",
+   
     "@nuxtjs/tailwindcss",
   ],
   devServer: {

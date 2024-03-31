@@ -3,7 +3,8 @@
     class="w-screen h-screen overflow-hidden bg-center bg-cover"
     :style="backgroundStyle"
   >
-    <Topbar />
+    <Topbar/>
+
   </div>
 </template>
 
@@ -25,6 +26,10 @@ const backgroundStyle = computed(() => {
     filter: filterValue,
   };
 });
+
+const fn = () => {
+  alert("hello");
+};
 
 // @ts-ignore
 // import ll from "@/components/login/ll.vue";

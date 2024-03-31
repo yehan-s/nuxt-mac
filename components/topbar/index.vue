@@ -7,22 +7,49 @@
         <!-- apple -->
         <Apple theme="filled" size="16" :filled="dark ? '#000' : '#fff'" />
       </div>
-      <!-- <div class="flex-1"></div> -->
+      <div class="flex-1"></div>
+      <!-- tools -->
       <div class="flex items-center justify-end h-full space-x-2 basis-1/6">
+        <div class="relative">
+          <!-- wifi -->
+          <TopbarItem mo="wifiMenuSwitch" :value="controlStore.showWifiMenu">
+            <Wifi
+              v-show="controlStore.wifi === true"
+              theme="outline"
+              size="16"
+              :fill="dark ? '#000' : '#fff'"
+            />
+            <CloseWifi
+              v-show="controlStore.wifi === false"
+              theme="outline"
+              size="16"
+              :fill="dark ? '#000' : '#fff'"
+            />
+          </TopbarItem>
+          <MenuWifiMenu v-if="controlStore.showWifiMenu" />
+        </div>
+        <!-- search -->
         <TopbarItem>
-          <Wifi theme="outline" size="16" fill="#333" />
+          <Search theme="outline" size="16" :fill="dark ? '#000' : '#fff'" />
         </TopbarItem>
         <TopbarItem>
-          <Search theme="outline" size="16" fill="#333" />
+          <More theme="outline" size="16" :fill="dark ? '#000' : '#fff'" />
         </TopbarItem>
-        <TopbarItem>
-          <More theme="outline" size="16" fill="#333" />
-        </TopbarItem>
+        <!-- battryCharge -->
         <TopbarItem
-          ><BatteryCharge theme="outline" size="16" fill="#333" />
+          ><BatteryCharge
+            theme="outline"
+            size="16"
+            :fill="dark ? '#000' : '#fff'"
+          />
         </TopbarItem>
+        <!-- switchBtn -->
         <TopbarItem
-          ><SwitchButton theme="outline" size="16" fill="#333" />
+          ><SwitchButton
+            theme="outline"
+            size="16"
+            :fill="dark ? '#000' : '#fff'"
+          />
         </TopbarItem>
       </div>
     </div>
@@ -32,6 +59,7 @@
 <script setup lang="ts">
 import {
   Apple,
+  CloseWifi,
   Wifi,
   Search,
   More,
@@ -39,9 +67,12 @@ import {
   SwitchButton,
 } from "@icon-park/vue-next";
 import { useThemeStore } from "@/store/theme";
+import { useControlStore } from "@/store/control";
 const themeStore = useThemeStore();
-let dark = themeStore.dark;
-console.log(dark);
+const controlStore = useControlStore();
+// let dark = themeStore.dark;
+let { dark } = storeToRefs(themeStore);
+// console.log(dark);
 let date = ref(new Date());
 </script>
 

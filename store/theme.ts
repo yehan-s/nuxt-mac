@@ -1,4 +1,5 @@
 interface ThemeState {
+  [index: string]: any;
   dark: Ref<boolean>;
   brightness: Ref<number>;
   setDark: (value: boolean) => void;
