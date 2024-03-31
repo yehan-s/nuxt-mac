@@ -19,30 +19,15 @@
 <script setup lang="ts">
 import { useThemeStore } from "@/store/theme";
 import { useControlStore } from "@/store/control";
+import { useClickOutside } from "@/utils/useClickOutside";
 
 const themeStore = useThemeStore();
 const controlStore = useControlStore();
 let { dark } = storeToRefs(themeStore);
 
-const menuRef = ref<HTMLDivElement | null>(null);
-
 // click outside
-const handleClickOutside = (event: { target: any }) => {
-  if (menuRef.value && !menuRef.value.contains(event.target)) {
-    controlStore.wifiMenuSwitch(false);
-    console.log("click outside");
-  }
-};
-
-onMounted(() => {
-  window.addEventListener("click", handleClickOutside);
-  console.log("mounted");
-  
-});
-
-onUnmounted(() => {
-  window.addEventListener("click", handleClickOutside);
-  console.log("unmounted");
+const menuRef =  useClickOutside(() => {
+  controlStore.wifiMenuSwitch(false);
 });
 </script>
 
