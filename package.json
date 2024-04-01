@@ -12,6 +12,7 @@
   "dependencies": {
     "@icon-park/vue-next": "^1.4.2",
     "@pinia/nuxt": "^0.5.1",
+    "dayjs": "^1.11.10",
     "nuxt": "^3.11.1",
     "tailwindcss-animated": "^1.0.1",
     "vue": "^3.4.21",

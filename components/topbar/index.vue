@@ -9,9 +9,9 @@
       </div>
       <div class="flex-1"></div>
       <!-- tools -->
-      <div class="flex items-center justify-end h-full space-x-2 basis-1/6">
+      <div class="flex items-center justify-end h-full space-x-2">
+        <!-- wifi -->
         <div class="relative">
-          <!-- wifi -->
           <TopbarItem mo="wifiMenuSwitch" :value="controlStore.showWifiMenu">
             <Wifi
               v-show="controlStore.wifi === true"
@@ -44,13 +44,20 @@
           />
         </TopbarItem>
         <!-- switchBtn -->
-        <TopbarItem
-          ><SwitchButton
-            theme="outline"
-            size="16"
-            :fill="dark ? '#000' : '#fff'"
-          />
-        </TopbarItem>
+        <div class="relative">
+          <TopbarItem>
+            <SwitchButton
+              theme="outline"
+              size="16"
+              :fill="dark ? '#000' : '#fff'"
+            />
+          </TopbarItem>
+          <MenuControlCenter />
+        </div>
+        <!-- time -->
+        <div :class="[dark ? 'text-black' : '']">
+          {{ dayjs(date).format("MMMD ddd HH:mm") }}
+        </div>
       </div>
     </div>
   </div>
@@ -66,14 +73,20 @@ import {
   BatteryCharge,
   SwitchButton,
 } from "@icon-park/vue-next";
+import dayjs from "dayjs";
 import { useThemeStore } from "@/store/theme";
 import { useControlStore } from "@/store/control";
+
 const themeStore = useThemeStore();
 const controlStore = useControlStore();
-// let dark = themeStore.dark;
 let { dark } = storeToRefs(themeStore);
-// console.log(dark);
 let date = ref(new Date());
+
+import * as isLeapYear from "dayjs/plugin/isLeapYear"; // 导入插件
+import "dayjs/locale/zh-cn"; // 导入本地化语言
+
+dayjs.extend(isLeapYear.default); // 使用插件
+dayjs.locale("zh-cn"); // 使用本地化语言
 </script>
 
 <style scoped></style>
