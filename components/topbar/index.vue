@@ -5,7 +5,12 @@
     >
       <div class="flex justify-center w-[30px] items-center">
         <!-- apple -->
-        <Apple theme="filled" size="16" :filled="dark ? '#000' : '#fff'" />
+        <div class="relative">
+          <TopbarItem mo="appleMenuSwitch" :value="controlStore.showAppleMenu">
+            <Apple theme="filled" size="16" :fill="dark ? '#000' : '#fff'" />
+          </TopbarItem>
+          <MenuAppleMenu v-if="controlStore.showAppleMenu" />
+        </div>
       </div>
       <div class="flex-1"></div>
       <!-- tools -->
@@ -73,7 +78,7 @@ import {
   BatteryCharge,
   SwitchButton,
 } from "@icon-park/vue-next";
-import dayjs from "dayjs";
+import dayjs from "@/utils/dayjs";
 import { useThemeStore } from "@/store/theme";
 import { useControlStore } from "@/store/control";
 
@@ -81,12 +86,7 @@ const themeStore = useThemeStore();
 const controlStore = useControlStore();
 let { dark } = storeToRefs(themeStore);
 let date = ref(new Date());
-
-import * as isLeapYear from "dayjs/plugin/isLeapYear"; // 导入插件
-import "dayjs/locale/zh-cn"; // 导入本地化语言
-
-dayjs.extend(isLeapYear.default); // 使用插件
-dayjs.locale("zh-cn"); // 使用本地化语言
 </script>
 
 <style scoped></style>
+~/utils/dayjs

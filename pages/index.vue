@@ -27,12 +27,7 @@ const backgroundStyle = computed(() => {
   };
 });
 
-const fn = () => {
-  alert("hello");
-};
 
-// @ts-ignore
-// import ll from "@/components/login/ll.vue";
 </script>
 
 <style scoped></style>

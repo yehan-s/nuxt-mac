@@ -6,7 +6,7 @@ interface ControlState {
   showWifiMenu: Ref<boolean>;
   showAppleMenu: Ref<boolean>;
   wifiSwitch: (value: boolean) => void;
-  appMenuSwitch: (value: boolean) => void;
+  appleMenuSwitch: (value: boolean) => void;
   wifiMenuSwitch: (value:boolean) => void;
   controlCenterSwitch: (value: boolean) => void;
 }
@@ -20,7 +20,7 @@ export const useControlStore = defineStore("control", (): ControlState => {
   const wifiSwitch = (value:boolean) => {
     wifi.value = value;
   };
-  const appMenuSwitch = (value: boolean) => {
+  const appleMenuSwitch = (value: boolean) => {
     showAppleMenu.value = value;
   };
   const wifiMenuSwitch = (value:boolean) => {
@@ -37,7 +37,7 @@ export const useControlStore = defineStore("control", (): ControlState => {
     showWifiMenu,
     showAppleMenu,
     wifiSwitch,
-    appMenuSwitch,
+    appleMenuSwitch,
     wifiMenuSwitch,
     controlCenterSwitch,
   };

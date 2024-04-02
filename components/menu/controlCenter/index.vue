@@ -18,7 +18,6 @@
           @click="themeStore.setDark(!themeStore.dark)"
         >
           <!-- Icon -->
-          <!-- fix?:icon没对齐 -->
           <div
             class="w-8 h-8 py-[5px] text-center border rounded-full flex justify-center items-center"
             :class="[dark ? 'bg-primary' : 'bg-gray-200']"
@@ -63,14 +62,14 @@
         <div
           class="flex items-center justify-center bg-gray-100 border-gray-300 rounded-l-full w-7 h-7"
         >
-          <SunOne theme="outline" size="12" fill="#000" />
+          <Headset theme="outline" size="12" fill="#000" />
         </div>
         <input
           type="range"
           min="0"
           max="100"
-          :value="themeStore.brightness"
-          @input="(e:Event) => themeStore.setBrightness((e.target as HTMLInputElement).value)"
+          :value="themeStore.sound"
+          @input="(e:Event) => themeStore.setSound((e.target as HTMLInputElement).value)"
           class="range rounded-l-none range-lg h-full [--range-shdw:#fff]"
         />
       </div>
@@ -79,7 +78,7 @@
 </template>
 
 <script setup lang="ts">
-import { Moon, SunOne } from "@icon-park/vue-next";
+import { Moon, SunOne,Headset } from "@icon-park/vue-next";
 import { useThemeStore } from "~/store/theme";
 import { useControlStore } from "~/store/control";
 const themeStore = useThemeStore();
