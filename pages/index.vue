@@ -4,7 +4,7 @@
     :style="backgroundStyle"
   >
     <Topbar/>
-
+    <Launchpad/>
   </div>
 </template>
 
