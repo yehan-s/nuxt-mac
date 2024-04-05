@@ -13,9 +13,15 @@ export default defineNuxtConfig({
         ],
       },
     ],
-   
+
     "@nuxtjs/tailwindcss",
+    "nuxt-primevue",
   ],
+  primevue: {
+    options: {
+      unstyled: true,
+    },
+  },
   devServer: {
     port: 3005,
   },
